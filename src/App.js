@@ -15,7 +15,7 @@ props => (Компонент)
 function App() {
   return (
     <>
-      <ReactFun />
+      <ReactFun name={'John'} surname={'Fox'} />
       <ReactClass />
     </>
   );
