@@ -1,24 +1,20 @@
 import logo from './logo.svg';
 import './App.css';
-import ReactFun from './components/Hello_fun';
-import ReactClass from './components/Hello_class';
 import React from 'react';
-/*
-React компоненты 
-1. функциональный (function) !!!  hooks
-2. класс (class)
+import { Component } from 'react';
+import HelloFun from './components/HelloFun';
 
-
-props => (Компонент)
-*/
-
-function App() {
-  return (
-    <>
-      <ReactFun name={'John'} surname={'Fox'} />
-      <ReactClass />
-    </>
-  );
+class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      login: 'undefined user',
+    };
+  }
+  render() {
+    const { login } = this.state;
+    return <HelloFun name={login} />;
+  }
 }
 
 export default App;
