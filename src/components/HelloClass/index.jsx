@@ -6,7 +6,11 @@ class HelloClass extends Component{
         super(props);
     }
     render(){
-        return <div>Hello {this.props.name}</div>;
+        return (
+        <div>
+            {this.props.isHello ? 'Hello' : 'Goodbye'} {this.props.name}
+        </div>
+  );
     }
 }
 export default HelloClass;

@@ -19,7 +19,7 @@ class App extends Component {
         <HelloFun name={login} isHello={true} />
         <HelloFun name={login} isHello={false} />
         <HelloFun name={login} />
-        <HelloClass name={login} />
+        <HelloClass name={login} isHello={false} />
       </>
     );
   }
