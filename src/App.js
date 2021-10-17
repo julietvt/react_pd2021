@@ -9,17 +9,20 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      login: 'undefined user',
+      login: 'anonym',
+      isHelloMode: true,
     };
   }
+  changeMode = () => {
+    const { isHelloMode } = this.state;
+    this.setState({ isHelloMode: !isHelloMode });
+  };
   render() {
-    const { login } = this.state;
+    const { login, isHelloMode } = this.state;
     return (
       <>
-        <HelloFun name={login} isHello={true} />
-        <HelloFun name={login} isHello={false} />
-        <HelloFun name={login} />
-        <HelloClass name={login} isHello={false} />
+        <button onClick={this.changeMode}> change hello mode </button>
+        <HelloFun name={login} isHello={isHelloMode} />
       </>
     );
   }
