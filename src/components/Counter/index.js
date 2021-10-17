@@ -15,8 +15,11 @@ export class Counter extends Component {
     this.setState({ value: value + step });
   };
   dec = () => {
+    // получение состояний
     const { value } = this.state;
+    //получение пропсов
     const { step } = this.props;
+    // установка состояния через setState()
     this.setState({ value: value - step });
   };
   myFun = () => {
@@ -25,6 +28,7 @@ export class Counter extends Component {
   render() {
     const { value } = this.state;
     return (
+      // можем вернуть только 1 элемент! поэтому через фрагмент <> </>
       <>
         <p>{value}</p>
         <button onClick={this.inc}> + </button>
