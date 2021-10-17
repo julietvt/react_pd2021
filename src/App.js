@@ -3,6 +3,7 @@ import './App.css';
 import React from 'react';
 import { Component } from 'react';
 import HelloFun from './components/HelloFun';
+import HelloClass from './components/HelloClass';
 
 class App extends Component {
   constructor(props) {
@@ -13,7 +14,14 @@ class App extends Component {
   }
   render() {
     const { login } = this.state;
-    return <HelloFun name={login} />;
+    return (
+      <>
+        <HelloFun name={login} isHello={true} />
+        <HelloFun name={login} isHello={false} />
+        <HelloFun name={login} />
+        <HelloClass name={login} />
+      </>
+    );
   }
 }
 
