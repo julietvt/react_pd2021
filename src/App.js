@@ -1,36 +1,8 @@
 import './App.css';
 import React from 'react';
-import { Component } from 'react';
-import User from './components/User';
+import UsersList from './components/UsersList';
 
-class App extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      name: 'Grut',
-      age: 25,
-      isSelected: false,
-    };
-  }
-
-  clickHandler = () => {
-    const { isSelected } = this.state;
-    this.setState({ isSelected: !isSelected });
-  };
-
-  render() {
-    const { name, age, isSelected } = this.state;
-    return (
-      <User
-        name={name}
-        age={age}
-        isSelected={isSelected}
-        clickHandler={this.clickHandler}
-      />
-    );
-  }
-}
+const App = () => <UsersList />;
 
 // Parent -> Child : props
 // Child -> Parent : callback
