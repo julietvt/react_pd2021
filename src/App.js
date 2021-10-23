@@ -1,17 +1,40 @@
 import './App.css';
 import React from 'react';
 import { Component } from 'react';
-import Car from './components/Car';
+import User from './components/User';
+
 class App extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      name: 'Grut',
+      age: 25,
+      isSelected: false,
+    };
+  }
+
+  clickHandler = () => {
+    const { isSelected } = this.state;
+    this.setState({ isSelected: !isSelected });
+  };
+
   render() {
-    return <Car />;
+    const { name, age, isSelected } = this.state;
+    return (
+      <User
+        name={name}
+        age={age}
+        isSelected={isSelected}
+        clickHandler={this.clickHandler}
+      />
+    );
   }
 }
 
-// Создать компонент Car (в состоянии хранить марка, модель и цена)
-// Брать элемент в зеленую рамку, если стоимость < 20000
-// Иначе в синюю
-// В инлайн стилях для марки указать цвет текста
+// Parent -> Child : props
+// Child -> Parent : callback
+
 export default App;
 
 //props step
