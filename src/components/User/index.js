@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import classNames from 'classnames';
 import styles from './User.module.css';
 
 class User extends Component {
@@ -22,13 +23,17 @@ class User extends Component {
   render() {
     const { name, age, isSelected } = this.state;
 
-    const userArticleStyles = isSelected ? styles.selectedUser : null;
+    const userArticleStyles = classNames(styles.userCard, {
+      [styles.selectedUser]: isSelected,
+    });
+
     const userArticleInlineStyles = {
       display: 'flex',
       flexDirection: 'column',
       alignItems: 'center',
     };
 
+    // className='selectedUser userCard'
     return (
       // style - объект
       // className - строка

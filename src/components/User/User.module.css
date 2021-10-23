@@ -1,3 +1,7 @@
+.userCard {
+  font-size: 20px;
+}
+
 .selectedUser {
   background-color: gainsboro;
 }
