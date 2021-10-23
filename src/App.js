@@ -1,10 +1,10 @@
 import './App.css';
 import React from 'react';
 import { Component } from 'react';
-import User from './components/User';
+import Car from './components/Car';
 class App extends Component {
   render() {
-    return <User />;
+    return <Car />;
   }
 }
 
