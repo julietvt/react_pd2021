@@ -1,8 +1,8 @@
 import './App.css';
 import React from 'react';
-import UsersList from './components/UsersList';
+import CarsList from './components/CarsList';
 
-const App = () => <UsersList />;
+const App = () => <CarsList />;
 
 // Parent -> Child : props
 // Child -> Parent : callback
