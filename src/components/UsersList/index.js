@@ -1,39 +1,20 @@
 import React, { Component } from 'react';
 import UsersListItem from './UsersListItem';
 
-const usersDB = [
-  { id: 1, name: 'Grut', age: 25 },
-  { id: 2, name: 'Elsa', age: 20 },
-];
-
-// Реализовать список машин (марка, модель, цена)
-//    (не забываем про обязательный проп)
-// Реализовать возможность выбора машины и ее подсвечивание салатовым цветом
-//    (взаимодействие Child->Parent)
-// *(или удаление машины при нажатии на кнопку)
-
 class UsersList extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      users: usersDB.map((u) => ({
-        ...u,
-        isSelected: false,
-      })),
-    };
-  }
-
   mapUsers = (u, index) => {
     const { id } = u;
+
     const clickHandler = () => {
-      const { users } = this.state;
+      const { users, setUsers } = this.props;
       const newUsers = [...users];
+
       newUsers[index] = {
         ...newUsers[index],
         isSelected: !newUsers[index].isSelected,
       };
-      this.setState({ users: newUsers });
+
+      setUsers(newUsers);
     };
 
     return <UsersListItem key={id} user={u} clickHandler={clickHandler} />;
@@ -43,7 +24,7 @@ class UsersList extends Component {
   // Для key брать id
   // Брать index опасно!!!
   render() {
-    const { users } = this.state;
+    const { users } = this.props;
     return <ul>{users.map(this.mapUsers)}</ul>;
   }
 }
