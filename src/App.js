@@ -1,34 +1,42 @@
 import './App.css';
 import React, { Component } from 'react';
-import UsersList from './components/UsersList';
-import SelectedUsersList from './components/SelectedUsersList';
 
-const usersDB = [
-  { id: 1, name: 'Grut', age: 25 },
-  { id: 2, name: 'Elsa', age: 20 },
-];
+// Методы жизненного цикла применимы к классовым компонентам
 class App extends Component {
   constructor(props) {
     super(props);
-
     this.state = {
-      users: usersDB.map((u) => ({
-        ...u,
-        isSelected: false,
-      })),
+      count: 0,
     };
+    this.updatedCounter = 0;
+    console.log(`Constructor`);
   }
 
-  setUsers = (newUsers) => {
-    this.setState({ users: newUsers });
-  };
+  // after 1st render
+  componentDidMount() {
+    console.log(`Did mount`);
+  }
+
+  // after 2-... renders
+  componentDidUpdate(prevProps, prevState) {
+    this.updatedCounter++;
+    console.log(`Did update`, this.updatedCounter);
+  }
+
+  // before unmount
+  componentWillUnmount() {}
 
   render() {
-    const { users } = this.state;
     return (
       <>
-        <UsersList setUsers={this.setUsers} users={users} />
-        <SelectedUsersList users={users} />
+        <div>{this.state.count}</div>
+        <button
+          onClick={() => {
+            this.setState({ count: this.state.count + 5 });
+          }}
+        >
+          +
+        </button>
       </>
     );
   }
