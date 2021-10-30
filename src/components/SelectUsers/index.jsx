@@ -1,8 +1,8 @@
 import React from 'react';
 
-const SelectUsers = props => {
+function SelectUsers(props) {
     const {users} = props;
-    const selectedUsersList = users.filter( (u) => u.isSelected);
+    const selectedUsersList = users.filter((u)=>u.isSelected);
     return(
         <ul>
             {selectedUsersList.map((u) => (
