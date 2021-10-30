@@ -1,14 +1,12 @@
 import React, { Component } from 'react';
 
-class UserItem extends Component {
-    constructor(props){
-        super(props);
-    }
-  render() {
-      const{ user: {id, name, surname}} = props;
+const UserItem = props => {
+      const{ onSelectUser, isSelected, user: {id, name, surname}} = props;
     return (
-      <li>id "{id}" fullname: "{name} {surname}"</li>
+      <li>
+          <span>id "{id}" fullname: "{name} {surname}"</span>
+          <button onClick={onSelectUser}>Select</button>
+    </li>
     );
-  }
 }
-export default componentName;
+export default UserItem;
