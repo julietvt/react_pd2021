@@ -1,30 +1,8 @@
 import './App.css';
 import React, { Component } from 'react';
-import MouseTracker from './components/MouseTracker';
+import Stopwatch from './components/Stopwatch';
 
-class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      isMounted: false,
-    };
-  }
-
-  render() {
-    return (
-      <>
-        <button
-          onClick={() => {
-            this.setState({ isMounted: !this.state.isMounted });
-          }}
-        >
-          Show/Hide
-        </button>
-        {this.state.isMounted && <MouseTracker />}
-      </>
-    );
-  }
-}
+const App = () => <Stopwatch />;
 
 export default App;
 
