@@ -1,6 +1,7 @@
 // counter with base level
 
 import React, { Component } from 'react';
+import styles from '../TotalComponents.module.scss';
 
 function Component2(props) {
   const { level, step, setLevel } = props;
@@ -11,7 +12,7 @@ function Component2(props) {
     setLevel(level-step);
   };  
  return (
-      <div>
+      <div className={styles.styleForComponent2}>
         <p>Component1</p>
         <p>{level}</p>
         <button onClick={inc}> + </button>
@@ -20,4 +21,4 @@ function Component2(props) {
     );
 }
 
-export default Counter;
+export default Component2;
