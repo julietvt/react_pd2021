@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+`import React, { Component } from 'react';
 
 const UserItem = props => {
       const{ onSelectUser, isSelected, user: {id, name, surname}} = props;
