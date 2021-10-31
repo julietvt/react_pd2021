@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Month from './Month';
+import PropTypes from 'prop-types';
 
 const Calendar = ({currentDate}) => {
   return(
@@ -8,4 +9,12 @@ const Calendar = ({currentDate}) => {
     </div>
   )
 }
+
+Calendar.propTypes = {
+  currentDate: PropTypes.instanceOf(Date),
+};
+Calendar.defaultProps = {
+  currentDate: new Date(),
+}
+
 export default Calendar;

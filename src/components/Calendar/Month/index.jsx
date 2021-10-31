@@ -1,7 +1,8 @@
 import { format } from 'date-fns';
 import { eachWeekOfInterval, endOfMonth, startOfMonth} from 'date-fns/esm';
-import React from 'react'
-import Week from './Week'
+import React from 'react';
+import Week from './Week';
+import PropTypes from 'prop-types';
 
 const getMonth = ({date, currentDate}) => {
     eachWeekOfInterval({
@@ -30,4 +31,12 @@ const Month = (props) => {
     )
 };
 
-export default Week;
+Month.propTypes = {
+    date: PropTypes.instanceOf(Date).isRequired, 
+    currentDate: PropTypes.instanceOf(Date).isRequired
+};
+Month.defaultProps = {
+    currentDate: new Date(),
+};
+
+export default Month;

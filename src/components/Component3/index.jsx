@@ -19,8 +19,8 @@ export default class Component3 extends Component {
     return (
       <div className={styles.styleForComponent3}>
           <p>Component3</p>
-          <Component1 level={level} />
-          <Component2 level={level} step={5} setLevel={this.setLevel} />
+          <Component1 level={level}/>
+          <Component2 level={level} step={step} setLevel={this.setLevel}/>
       </div>
     );
   }
