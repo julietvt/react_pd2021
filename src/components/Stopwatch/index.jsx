@@ -3,16 +3,19 @@ import React, { useState, useEffect } from 'react';
 function Stopwatch (props){
   const [time, setTime] = useState(0);
   const [isRun, setIsRun] = useState(false);
+  const [timerId, setTimerId] = useState(null);
 
+  const tick = () => {
+      setTimerId(setInterval(()=> {setTime(time+1)},1000));
+  }
+
+  const reset = () => {
+      clearInterval(timerId);
+  }
+  
   useEffect(()=> {
-      if(isRun){
-          const timerId = setInterval(()=> {
-              setTime(time+1);
-          },1000);
-      return () => {
-          clearInterval(timerId);
-      };
-    }
+      if(isRun){ tick(); }
+      else { reset();}     
   }, [isRun, time]);
 
     return (
