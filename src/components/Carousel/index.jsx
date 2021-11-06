@@ -1,64 +1,56 @@
-import React, { Component } from 'react'
+import React, { useState} from 'react'
 import Slide from './Slide';
 import Slider from './Slider';
 
-export default class Carousel extends Component {
-    constructor(props){
-        super(props);
-        this.state = {
-            index: 0,
-            width: 0,
-            height: 0,
-            timerId: null,
-        };
-    };
-     setFullScreenMode = (isFullScreen) => {
+function Carousel(props) {
+  const { slides } = props;
+
+  const [index, setIndex] = useState(0);
+  const [width, setWidth] = useState(0);
+  const [height, setHeight] = useState(0);
+  const [timerId, setTimerId] = useState(null); 
+  
+  const setFullScreenMode = (isFullScreen) => {
     !isFullScreen
-      ? this.setState({ width: "50%", height: "50%" })
-      : this.setState({ width: 300, height: 300 });
+      ? (setWidth("50%") && setHeight("50%"))
+      : (setWidth("300") && setHeight("300"));
   };
 
-  start = () => {
-    if (!this.timerId) {
-      this.timerId = setInterval(this.setNext, 2000);
+  const start = () => {
+    if (!timerId) {
+      setTimerId(setInterval(setNext, 2000));
     }
   };
-  stop = () => {
-    clearInterval(this.timerId);
-    this.timerId = null;
-  };
-  startPlay = (isPlay) => {
-    !isPlay ? this.start() : this.stop();
+
+  const stop = () => {
+    clearInterval(timerId);
+    setTimerId(null);
   };
 
-  setNext = () => {
-    const { index } = this.state;
-    const { slides } = this.props;
-    console.log(slides.length);
-    this.setState({ index: (index + 1) % slides.length });
-  };
-  setPrev = () => {
-    const { index } = this.state;
-    const { slides } = this.props;
-    console.log(slides.length);
-    this.setState({ index: (index - 1 + slides.length) % slides.length });
+  const startPlay = (isPlay) => {
+    !isPlay ? start() : stop();
   };
 
-  render() {
-    const { index, width, height } = this.state;
-    const { slides } = this.props;
+  const setNext = () => {
+    setIndex((index + 1) % slides.length);
+  };
+
+  const setPrev = () => {
+    setIndex((index - 1 + slides.length) % slides.length);
+  };
     return (
       <div>
         <Slide currentImage={slides[index]} width={width} height={height} />
         <Slider
-          next={this.setNext}
-          prev={this.setPrev}
-          setFullScreenMode={this.setFullScreenMode}
-          startPlay={this.startPlay}
+          next={setNext}
+          prev={setPrev}
+          setFullScreenMode={setFullScreenMode}
+          startPlay={startPlay}
         />
       </div>
     );
   }
-}
 
+
+export default Carousel;
 
