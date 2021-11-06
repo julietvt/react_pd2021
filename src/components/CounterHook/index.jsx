@@ -29,15 +29,16 @@ export default Counter;
 */
 
 import React, {useState} from 'react';
-function CounterHook() {
+function CounterHoo(props) {
     // value - состояние , setValue - колбэк функции которое ставит состояние
     // useState - сам крючек а 0 - начальное состояние value
     const [value, setValue] = useState(0);
+    const {step} = props;
     const inc = () => {
-       setValue(value+1);
+       setValue(value+step);
     };
     const dec = () => { 
-        setValue(value-1);
+        setValue(value-step);
     };
     return (
         <div>
