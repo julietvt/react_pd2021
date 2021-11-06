@@ -1,29 +1,17 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 import Icon from '@mdi/react';
+function Slider(props){
+    const {next, prev, setFullScreenMode} = props; 
 
-export class Slider extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            isPlay: false,
-            isFullScreen: false,
-        };
-        this.timerId = null;        
-    }
-    handlerPlay = () => {
-        const {isPlay} = this.state;
-        this.setState({ isPlay: !isPlay});
-    }
-    handleFullScreen = () => {
-        const {isFullScreen} = this.state;
-        const {setFullScreenMode} = this.props;
-        this.setState({isFullScreen: !isFullScreen});
+    [isPlay, setIsPlay] = useState(false);
+    [isFullScreen, setIsFullScreen] = useState(false);
+ 
+    const handlerPlay = () => setIsPlay(!isPlay);    
+  
+    const handleFullScreen = () => {
+        setIsFullScreen(!isFullScreen);
         setFullScreenMode(isFullScreen);
-    }
-
-    render() {
-        const {isPlay, isFullScreen} = this.state;
-        const {next, prev} = this.props;
+    };
         return (
             <div>
                 <div>
@@ -31,12 +19,11 @@ export class Slider extends Component {
                     <Icon onClick={next} path={mdiSkipNext}/>
                 </div>
                 <div>
-                    <Icon onClick={this.handlerPlay} path={isPlay ? mdiPause : mdiPlay}/>
-                    <Icon onClick={this.handleFullScreen} path={isFullScreen ? mdiFullscreenExit : mdiFullscreen}/>
+                    <Icon onClick={handlerPlay} path={isPlay ? mdiPause : mdiPlay}/>
+                    <Icon onClick={handleFullScreen} path={isFullScreen ? mdiFullscreenExit : mdiFullscreen}/>
                 </div>                
             </div>
         );
-    }
 }
 
 export default Slider;
