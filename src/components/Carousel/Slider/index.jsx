@@ -11,8 +11,8 @@ import {
 function Slider(props){
     const {next, prev, setFullScreenMode} = props; 
 
-    [isPlay, setIsPlay] = useState(false);
-    [isFullScreen, setIsFullScreen] = useState(false);
+    const [isPlay, setIsPlay] = useState(false);
+    const [isFullScreen, setIsFullScreen] = useState(false);
  
     const handlerPlay = () => setIsPlay(!isPlay);    
   
