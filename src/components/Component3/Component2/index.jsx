@@ -5,12 +5,12 @@ import styles from '../TotalComponents.module.scss';
 import PropTypes from 'prop-types';
 
 function Component2(props) {
-  const { level, step, setLevel } = props;
+  const { level, step, setNewLevel } = props;
   const inc = () => {
-    setLevel(level+step);
+    setNewLevel(level+step);
   };
   const dec = () => {
-    setLevel(level-step);
+    setNewLevel(level-step);
   };  
  return (
       <div className={styles.styleForComponent2}>

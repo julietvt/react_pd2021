@@ -1,9 +1,9 @@
 import './App.css';
 import React, { Component } from 'react';
-import CounterHook from './components/CounterHook';
+import Component3 from './components/Component3';
 
 const App = () => {
-  return <CounterHook step={5} />;
+  return <Component3 />;
 };
 
 export default App;

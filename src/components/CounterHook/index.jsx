@@ -33,7 +33,11 @@ function CounterHook(props) {
     // value - состояние , setValue - колбэк функции которое ставит состояние
     // useState - сам крючек а 0 - начальное состояние value
     const [value, setValue] = useState(0);
+    const [thousand, setThousand] = useState(1000);
     const {step} = props;
+    const inc2 = () => {
+       setThousand(thousand+100);
+    };
     const inc = () => {
        setValue(value+step);
     };
@@ -43,8 +47,10 @@ function CounterHook(props) {
     return (
         <div>
             <p>{value}</p>
+            <p>{thousand}</p>
             <button onClick={inc}> + </button> 
-            <button onClick={dec}> - </button>           
+            <button onClick={dec}> - </button>
+            <button onClick={inc2}> Change state value2 </button>           
         </div>
     );
 }
