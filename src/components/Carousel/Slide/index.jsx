@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 function Slide({currentImage, width, height}) {
     const [photo, setPhoto] = useState(new Image());
@@ -6,7 +6,7 @@ function Slide({currentImage, width, height}) {
         //photo.src = currentImage.src;
         setPhoto(currentImage);
     }
-    //componentDidMount(){ this.load(); }
+    useEffect(() => {load();})
     return(
             <div>
                 <img src={currentImage.src} alt="image" width={width} height={height}>
