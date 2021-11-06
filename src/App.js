@@ -1,10 +1,9 @@
 import './App.css';
 import React, { Component } from 'react';
-import Calendar from './components/Calendar';
-import Component3 from './components/Component3';
+import CounterHook from './components/CounterHook';
 
 const App = () => {
-  return <Component3 />;
+  return <CounterHook />;
 };
 
 export default App;
