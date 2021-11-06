@@ -1,6 +1,7 @@
 import './App.css';
 import React, { Component } from 'react';
 import Carousel from './components/Carousel';
+import Stopwatch from './components/Stopwatch';
 
 const slides = [
   {
@@ -22,7 +23,8 @@ const slides = [
 ];
 
 const App = () => {
-  return <Carousel slides={slides} />;
+  //return <Carousel slides={slides} />;
+  return <Stopwatch />;
 };
 
 export default App;
