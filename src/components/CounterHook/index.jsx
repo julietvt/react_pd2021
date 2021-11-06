@@ -30,11 +30,20 @@ export default Counter;
 
 import React, {useState} from 'react';
 function CounterHook() {
+    // value - состояние , setValue - колбэк функции которое ставит состояние
+    // useState - сам крючек а 0 - начальное состояние value
     const [value, setValue] = useState(0);
+    const inc = () => {
+       setValue(value+1);
+    };
+    const dec = () => { 
+        setValue(value-1);
+    };
     return (
         <div>
             <p>{value}</p>
-            <button onClick={()=>setValue(value+1)}> + </button>            
+            <button onClick={inc}> + </button> 
+            <button onClick={dec}> - </button>           
         </div>
     );
 }
