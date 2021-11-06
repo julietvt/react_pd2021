@@ -1,5 +1,13 @@
 import React, { useState } from 'react';
-import Icon from '@mdi/react';
+import Icon from "@mdi/react";
+import {
+  mdiSkipNext,
+  mdiSkipPrevious,
+  mdiFullscreen,
+  mdiPause,
+  mdiPlay,
+  mdiFullscreenExit,
+} from "@mdi/js";
 function Slider(props){
     const {next, prev, setFullScreenMode} = props; 
 
