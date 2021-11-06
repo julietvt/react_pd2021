@@ -16,10 +16,10 @@ export class Slide extends Component {
     componentDidMount(){ this.load(); }
     render() {
         const {img} = this.state;
-        const {currentImage} = this.props;
+        const { currentImage, width, height } = this.props;
         return (
             <div>
-                <img src={currentImage.src}>
+                <img src={currentImage.src} alt="image" width={width} height={height}>
                     <figcaption>{currentImage.title}</figcaption>
                 </img>                
             </div>
