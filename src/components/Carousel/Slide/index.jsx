@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 
 function Slide({currentImage, width, height}) {
-    const [img, setImg] = useState(new Image());
+    const [photo, setPhoto] = useState(new Image());
     const load = () => {
-        img.src = currentImage.src;
+        //photo.src = currentImage.src;
+        setPhoto(currentImage);
     }
     //componentDidMount(){ this.load(); }
     return(
