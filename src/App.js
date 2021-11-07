@@ -1,11 +1,11 @@
 import './App.css';
 import React, { Component } from 'react';
-import ViewPortParamsFun from './components/ViewPortParamsFun';
+import ThemeComponent from './components/ThemeComponent';
 
 const App = () => {
   return (
     <div>
-      <ViewPortParamsFun />
+      <ThemeComponent />
     </div>
   );
 };
