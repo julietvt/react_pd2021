@@ -1,6 +1,7 @@
 import React from 'react';
-import {Formik, Form, Field} from 'formik';
+import {Formik, Form, Field, ErrorMessage} from 'formik';
 import {LOGIN_SCHEMA} from '../../utils/validateLoginForm.js';
+import InputField from '../InputField/index.jsx';
 
 function LoginForm(props){
     const loginFromInitialValues = {
@@ -15,16 +16,13 @@ function LoginForm(props){
         <Formik
         initialValues={loginFromInitialValues}
         onSubmit = {loginFormHandlerSubmit}
-        validationSchema = {LOGIN_SCHEMA}>
+        //validationSchema = {LOGIN_SCHEMA}
+        >
         {formikProps => {
             return(
                 <Form>
-                    <input type="text" name="email" />
-                    <Field type="text" name="email" />
-                    <br />
-                    <input type="password" name="password" />
-                    <Field type="password" name="password" />
-                    <br />
+                    <InputField type="text" name="email" placeholder="email"/>
+                    <InputField type="password" name="password" placeholder="password"/>
                     <button type="submit">Submit</button>
                 </Form>
          );
