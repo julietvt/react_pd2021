@@ -1,11 +1,11 @@
 import './App.css';
 import React, { Component } from 'react';
-import ThemeComponent from './components/ThemeComponent';
+import LoginForm from './forms/LoginForm';
 
 const App = () => {
   return (
     <div>
-      <ThemeComponent />
+      <LoginForm />
     </div>
   );
 };
