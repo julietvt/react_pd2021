@@ -1,5 +1,6 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useContext} from 'react';
 import CONSTANTS from './constants';
+import { ThemeContext } from '../../contexts';
 
 const stylesMap = {
     [CONSTANTS.THEMES.LIGHT]: {
@@ -17,7 +18,7 @@ const stylesMap = {
 };
 
 function ThemeComponent(props){
-    const [theme, setTheme] = useState(CONSTANTS.THEMES.DARK);
+    const [theme, setTheme] = useState(CONSTANTS.THEMES.LIGHT);
     const switchTheme = () => {
         setTheme(theme == CONSTANTS.THEMES.DARK 
             ? CONSTANTS.THEMES.LIGHT 
