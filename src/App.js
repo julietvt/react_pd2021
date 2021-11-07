@@ -1,13 +1,11 @@
 import './App.css';
 import React, { Component } from 'react';
-import ClockMatrix from './components/ClockMatrix';
-//import DivRender from './components/DivRender';
-import ViewPortParamsClass from './components/ViewPortParamsClass';
+import ViewPortParamsFun from './components/ViewPortParamsFun';
 
 const App = () => {
   return (
     <div>
-      <ViewPortParamsClass />
+      <ViewPortParamsFun />
     </div>
   );
 };
