@@ -1,0 +1,20 @@
+.bodyClock {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 150px;
+  width: 800px;
+  background-color: green;
+  border: 2px solid black;
+}
+
+.matrixDigits {
+  font-weight: bold;
+  color: black;
+  font-size: 40px;
+}
+
+.btn {
+  align-self: stretch;
+}
