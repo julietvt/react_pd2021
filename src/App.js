@@ -1,13 +1,15 @@
 import './App.css';
 import React, { Component } from 'react';
-import Carousel from './components/Carousel';
-import Stopwatch from './components/Stopwatch';
-import slides from './components/Carousel/config';
-import Clicker from './components/Clicker';
-import ClickerClear from './components/ClickerClear';
+import ClockMatrix from './components/ClockMatrix';
+import DivRender from './components/DivRender';
 
 const App = () => {
-  return <ClickerClear />;
+  return (
+    <div>
+      <ClockMatrix />
+      <DivRender />
+    </div>
+  );
 };
 
 export default App;
