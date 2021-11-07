@@ -1,20 +1,21 @@
-import { addMilliseconds, format } from "date-fns";
+import { subMilliseconds, format, getSeconds, getHours } from "date-fns";
 import React, {useState, useEffect} from "react";
 import styles from './ClockMatrix.module.scss';
 
 function ClockMatrix(props){
-    const [time, setTime] = useState(new Date(0,0,0,0,0,0));
+    const [time, setTime] = useState(new Date(0,0,0,0,0,10));
     const [isRun, setIsRun] = useState(false);    
     const handleReset = () => {
-        setTime(new Date(0,0,0,0,0,0));
+        setTime(new Date(0,0,0,0,0,10));
     };
     const handleRunning = () => {
         setIsRun(!isRun);
     }
     useEffect(() => {
-        if(isRun){
+        //if(isRun && getSeconds(time)!=59){
+        if(isRun && getHours(time)==0){
             const idTimer = setInterval(()=>{
-                setTime(addMilliseconds(time,1000));
+                setTime(subMilliseconds(time,1000));
             },1000);
             return () => {
                 clearInterval(idTimer);
