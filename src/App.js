@@ -4,8 +4,13 @@ import LoginForm from './forms/LoginForm';
 import Counter from './components/Counter';
 import CounterHook from './components/CounterHook';
 import Stopwatch from './components/Stopwatch';
-import { BrowserRouter as Router, Route, Link, Routes } from 'react-router-dom';
-import { Switch } from 'react-router';
+import {
+  BrowserRouter as Router,
+  Route,
+  Link,
+  Routes,
+  useMatch,
+} from 'react-router-dom';
 
 /*
 <Router>
@@ -36,19 +41,47 @@ function App() {
             <Link to={'/'}>Home</Link>
           </li>
           <li>
-            <Link to={'/counter'}>Counter</Link>
-          </li>
-          <li>
-            <Link to={'/counterhook'}>Counterhook</Link>
+            <Link to={'/components'}>Components</Link>
           </li>
         </ul>
-        <Switch>
-          <Route path="/" element={<Stopwatch />} />
-          <Route path="/counter" element={<Counter step={1} />} />
-          <Route path="/counterhook" element={<CounterHook step={1} />} />
-        </Switch>
+        <Routes>
+          <Route exact path={'/'}>
+            <HomePage />
+          </Route>
+          <Route path={'/components'}>
+            <ComponentHomePage />
+          </Route>
+        </Routes>
       </Router>
     </>
+  );
+}
+
+function HomePage() {
+  return <div>Home</div>;
+}
+
+function ComponentHomePage() {
+  const { path, url } = useMatch();
+  return (
+    <div>
+      <ul>
+        <li>
+          <Link to={`${url}/counter`}>Counter</Link>
+        </li>
+        <li>
+          <Link to={`${url}/counterhook`}>Counterhook</Link>
+        </li>
+      </ul>
+      <Routes>
+        <Route path={`${path}/counter`}>
+          <Counter step={1} />
+        </Route>
+        <Route path={`${path}/counterhook`}>
+          <CounterHook step={1} />/
+        </Route>
+      </Routes>
+    </div>
   );
 }
 

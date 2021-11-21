@@ -10,11 +10,12 @@
     "date-fns": "^2.25.0",
     "formik": "^2.2.9",
     "mdi": "^2.2.43",
-    "node-sass": "^4.14.0",
+    "node-sass": "^6.0.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-router": "^6.0.2",
-    "react-scripts": "^3.4.4",
+    "react-router-dom": "^6.0.2",
+    "react-scripts": "^4.0.3",
     "yup": "^0.32.11"
   },
   "scripts": {
