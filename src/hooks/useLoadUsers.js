@@ -6,15 +6,14 @@ const useLoadUsers = (loadFunction) => {
   const [isError, setIsError] = useState(false);
   useEffect(() => {
     setIsFetching(true);
-    loadFunction()
-      .then((data) => {
-        setData(data);
-      })
-      .catch((error) => {
-        setIsError(true);
-      })
-      .finally(() => setIsFetching(false));
-  });
+    try {
+      setData(loadFunction());
+    } catch (error) {
+      setIsError(true);
+    } finally {
+      setIsFetching(false);
+    }
+  }, []);
   return { data, isFetching, isError };
 };
 

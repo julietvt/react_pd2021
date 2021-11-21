@@ -1,8 +1,8 @@
-export default function loadUsersFunction() {
+const loadUsersFunction = () => {
   const data = [
     {
       id: 1,
-      name: 'Hohn',
+      name: 'John',
       surname: 'Smith',
     },
     {
@@ -12,4 +12,6 @@ export default function loadUsersFunction() {
     },
   ];
   return data;
-}
+};
+
+export default loadUsersFunction;
